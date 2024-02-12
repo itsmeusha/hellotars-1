@@ -1,0 +1,34 @@
+{
+  "name": "hellotars-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "head": "npm run test -- --headed",
+    "chrome": "npm run test -- --headed --browser chrome",
+    "firefox": "npm run test -- --headed --browser firefox",
+    "electron": "npm run test -- --headed --browser electron",
+    "edge": "npm run test -- --headed --browser edge",
+    "Regression1": "npm run test -- --spec cypress/integration/examples/Regression1.js",
+    "TarsPrime1": "npm run test -- --spec cypress/integration/examples/TarsPrime1.js",
+    "WebPage1": "npm run test -- --spec cypress/integration/examples/WebPage1.js",
+    "AllSpecFiles": "npm run test -- --spec cypress/integration/examples/*.js",
+    "Regression1-Dashboard": "npm run test -- --record --key 31fd2c19-605a-4a94-bb8d-be98986bdfbf --spec cypress/integration/examples/Regression1.js --headed --browser chrome",
+    "TarsPrime1-Dashboard": "npm run test -- --record --key 31fd2c19-605a-4a94-bb8d-be98986bdfbf --spec cypress/integration/examples/TarsPrime1.js --headed --browser chrome",
+    "WebPage1-Dashboard": "npm run test -- --record --key 31fd2c19-605a-4a94-bb8d-be98986bdfbf --spec cypress/integration/examples/WebPage1.js --headed --browser chrome",
+    "AllSpecFiles-Dashboard": "npx cypress run --record --key 31fd2c19-605a-4a94-bb8d-be98986bdfbf",
+    "AllSpecFiles-Dashboard-Report": "npm run test -- --record --key 31fd2c19-605a-4a94-bb8d-be98986bdfbf --spec cypress/integration/examples/*.js --reporter mochawesome",
+    "cypress:open": "cypress open",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.3",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-xpath": "^2.0.1",
+    "mochawesome": "^7.1.3"
+  }
+}
