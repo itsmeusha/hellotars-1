@@ -6,12 +6,19 @@ on:
 
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    uses: docker/run-action@v2
+    containerName: cypress-test-runner
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
-        run: npm install
+        run: |
+          docker run --rm -v $PWD:/app --workdir /app node:14-alpine npm install
       - name: Run Cypress tests
         uses: cypress/action@v1
         with:
           config-file: cypress/cypress.config.js
+          env:
+            CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # Optional: Use GitHub Secrets for environment variables
+      - name: Mount project directory (optional)  # Removed unnecessary indentation
+        run: |
+          docker run --rm -v $PWD:/app --workdir /app node:14-alpine cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
