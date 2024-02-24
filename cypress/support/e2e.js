@@ -14,8 +14,11 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
 import 'cypress-file-upload';
+
+import '../support/oldlookcmds/commands.js';
+// import '../support/newlookcmds/commands.js';
+
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
